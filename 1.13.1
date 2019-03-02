@@ -1,0 +1,36 @@
+/*---------------------------------------------------------
+1.13.1你刚被MacroMuscle有限公司聘用，该公司准备进入欧洲市场
+需要一个把英寸单位转换为里面厘米单位（1英寸=2.54厘米）的程序。
+该程序要提示用户输入英寸值。
+------------------------------------------------------------*/
+
+#include<stdio.h>
+
+#define COE 2.54
+#define Converte(inch)	((inch)*COE)
+
+int main(void)
+{
+	float Temp_Kv_Inch;
+	float Temp_Kv_Cm;
+	int Temp;
+	static int Temp_Kv_Count = 0;
+
+	printf("Enter you wanted convert value(Inch),q to quit:");
+	//Temp = scanf("%f", &Temp_Kv_Inch);
+	while (1 == scanf("%f", &Temp_Kv_Inch))
+	{
+		Temp_Kv_Count++;
+		//Temp_Kv_Cm = Temp_Kv_Inch * COE;					//第一种方法，直接公式计算
+		Temp_Kv_Cm = Converte(Temp_Kv_Inch);				//宏函数
+		printf("The converted value is %.2f cm\n", Temp_Kv_Cm);
+
+		printf("Enter the next you wanted convert value(Inch),q to quit:");
+		//scanf("%f", &Temp_Kv_Inch));
+	}
+	printf("Bye! You Have Cal %d\n",Temp_Kv_Count);
+	Temp_Kv_Count = 0;
+
+	system("pause");
+	return 0;
+}
